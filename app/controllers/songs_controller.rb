@@ -10,12 +10,38 @@ class SongsController < ApplicationController
 
     if @song.save
       redirect_to song_path(@song)
-
+    else
+      flash[:notice] = @song.errors.full_messages.join(", ")
+      redirect_to new_artist_song_path(@artist)
     end
+  end
+
+  def index
+    @songs = Song.all
   end
 
   def show
     @song = Song.find(params[:id])
+  end
+
+  def edit
+    @song = Song.find(params[:id])
+  end
+
+  def update
+    @song = Song.find(params[:id])
+    if @song.update_attributes(song_params)
+      redirect_to song_path(@song)
+    else
+      flash[:notice] = @song.errors.full_messages.join(", ")
+      redirect_to edit_song_path(@song)
+    end
+  end
+
+  def destroy
+    @song = Song.find(params[:id])
+    @song.destroy
+    redirect_to :back
   end
 
   private
