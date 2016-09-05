@@ -1,3 +1,6 @@
 <h1><%= @song.title %></h1>
-<%= link_to "Edit", edit_song_path(@song) %>
-<%= link_to @song.artist.name, artist_path(@song.artist) %>
+<ul>
+  <li><%= link_to "Edit", edit_song_path(@song) %></li>
+  <li><%= link_to "Delete", song_path(@song), method: "delete" %></li>
+  <li><%= link_to "Back to #{@song.artist.name}", artist_path(@song.artist) %></li>
+</ul>
