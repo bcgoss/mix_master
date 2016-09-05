@@ -25,6 +25,6 @@ RSpec.feature "Users can edit an existing song" do
     expect(page).to have_content new_title
 
     #and I should see a link to the song's artists
-    expect(page).to have_link artist.name
+    expect(page).to have_link artist.name, href: artist_path(artist)
   end
 end
