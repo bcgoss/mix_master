@@ -12,8 +12,9 @@ class SongsController < ApplicationController
     if @song.save
       redirect_to song_path(@song)
     else
-      @errors = @song.errors.full_messages.join(", ")
-      redirect_to new_artist_song_path(@artist)
+      byebug
+      # @errors = @song.errors.full_messages.join(", ")
+      render :new
     end
   end
 

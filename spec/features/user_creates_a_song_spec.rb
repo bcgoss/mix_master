@@ -18,7 +18,6 @@ RSpec.feature "User submits a new song" do
 
   context "it validates inputs" do
     scenario "they must supply a title" do
-      pending
       #     As a user
       # Given that an artist exists in the database
       artist = create(:artist)
