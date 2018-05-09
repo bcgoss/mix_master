@@ -18,20 +18,13 @@ RSpec.feature "User submits a new song" do
 
   context "it validates inputs" do
     scenario "they must supply a title" do
-      #     As a user
-      # Given that an artist exists in the database
       artist = create(:artist)
 
-      song_title = "One Love"
-
-      # When I visit the individual artist page
       visit artist_path(artist)
 
-      # And I click "New song"
       click_on "New song"
-      # And I click "Create Song"
       click_on "Create Song"
-      # Then I should see "Title cannot be blank" on the page
+
       expect(page).to have_content "Title can't be blank"
     end
   end
